@@ -9,22 +9,22 @@
 	}
 
 /* base */
-	:root {
-		--primary: #ff6600; /*bright organge */
-		--backround: #0a0a0a; /*near black */
-		--text: #ffffff; /*white*/
+	:root{
+		--primary: #98fb98; /*nice green */
+		--background: #0a0a0a; /*near black */
+		--text: #8fd3fe; /*a nice blue*/
 		   	}
 
 
-	html, body {
+	html, body{
 		height: 100%;
 			}
 			
 	
-	body {
+	body{
 		font-family: system-ui, sans-serif;
-		backround: var(--backround);
-		color: var(--backround);
+		background: var(--background);
+		color: var(--text);
 			}
 
 	.container{
@@ -36,18 +36,18 @@
 
 /*header */
 
-	.site-header {
+	.site-header{
 		display:flex;
 		justify-content: space-between;
 		align-items: center;
-		bakcround: #1c1c1c;
+		background: #1c1c1c;
 		padding: 0.75rem 1rem;
-		postion: sticky;
+		position: sticky;
 		top: 0;
 		border-bottom: 3pm solid var(--primary);
 					}
 
-	.logo {
+	.logo{
 		color: var(--primary);
 		text-decoration: none;
 		font-weight: 700;
@@ -56,7 +56,7 @@
 		
 /* navigation links*/
 
-	.site-nav ul {
+	.site-nav ul{
 		list-style: none;
 		display: flex;
 		gap: 1rem;
@@ -66,38 +66,67 @@
 	.site-nav a{
 		text-decoration: none;
 		color: var(--text);
-		padding: 0,5rem 0.75rem;
+		padding: 0.5rem 0.75rem;
 		border-radius: 6px;
-		transition: backrounf 0.3s, color 0.3s;
+		transition: background 0.3s, color 0.3s;
 				}
 		
 /* hover and active link styles */		
 				
 	.site-nav a:hover,	
-	.site-nav a.active 
-						{
-		backround: var(--primary);
+	.site-nav a.active{ 
+		background: var(--primary);
 		color: #000000;
 						}
 				
 /* mobile */
 	
-	.menu-toggle {
+
+/* Hide the menu checkbox by default */
+	.menu-toggle{
 		display: none;
-					}
-	
-	.menu-btn {
-		disply: none;
-		dpmt-size: 2rem;
-		color: var(--primary);
-		cursor: pointer; 
-		user-select: none;
-				}
-	
-
-	@media (max-width: 768px) {
-			.menu-btn {
-			
-
-
+			}
  		
+		
+/* The hamburger button */
+	.menu-btn{
+		display: none;
+		font-size: 2rem;
+		color: var(--text);
+		cursor: pointer;
+		user-select: none;
+			}
+	
+		
+/* Mobile styles — everything under 768 pixels wide */
+	@media (max-width: 768px) {
+		
+		/* Show the menu button on small screens */
+		
+		.menu-btn{
+			display: block;
+				}
+			
+		
+/* Stack the navigation vertically and hide it by default */
+		.site-nav ul{
+			flex-direction: column;
+			position: absolute;
+			top: 60px;
+			right: 0;
+			background: #111624;
+			width: 200px;
+			padding: 1rem;
+			border-radius: 8px;
+			display: none;
+				}
+
+/* When the checkbox is checked, show the menu */
+		.menu-toggle:checked + .menu-btn + .site-nav ul{
+			display: flex;
+				}
+			
+	}
+
+
+
